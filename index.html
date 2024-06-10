@@ -27,7 +27,7 @@
         <label for="floatingInput" style="font-size: 0.8em;">DDD + Número do celular</label>
         <br>
         <button type="button" id="btnOpenZap" class="w-100 btn btn-lg btn-primary" onclick="OpenZap()">Chat</button>
-        <p class="mt-3 mb-5 text-muted">2024 © ARS</p>
+        <p id="copyrigth" class="mt-3 mb-5 text-muted"></p>
       </div>
     </form>
   </main>
@@ -35,6 +35,12 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
   <script src="./script.js"></script>
+  <script>
+    (async function () {
+      const { text } = await (await fetch(`/api/message`)).json();
+      document.querySelector('#copyrigth').textContent = text;
+    }());
+  </script>
 </body>
 
 </html>
